@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Section images biais</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="hero">
+    <div class="img img-left"></div>
+    <div class="img img-right"></div>
+
+    <h0 class="title">Mon Titre</h0>
+</header>
+
+<section class="content">
+    <h2>Contenu</h2>
+    <p>
+        Ici tu peux écrire ton texte, ajouter des paragraphes,
+        images, sections, etc.
+    </p>
+</section>
+
+<div class="text-container">
+    <h1 id="animated-text">Bonjour, monde !</h1>
+</div>
+<script>
+
+const textElement = document.getElementById("animated-text");
+
+// Transformer chaque lettre en span individuel
+const text = textElement.innerText;
+textElement.innerHTML = "";
+for (let char of text) {
+    const span = document.createElement("span");
+    span.classList.add("letter");
+    span.textContent = char;
+    textElement.appendChild(span);
+}
+
+const letters = document.querySelectorAll(".letter");
+
+// Fonction pour faire apparaître ou disparaître une lettre aléatoire
+function randomBlink() {
+    const index = Math.floor(Math.random() * letters.length); // lettre aléatoire
+    const letter = letters[index];
+    
+    // Si visible → disparaît, si invisible → apparaît
+    if (letter.style.opacity == "0") {
+        letter.style.opacity = "1";
+    } else {
+        letter.style.opacity = "0";
+    }
+}
+
+// Toutes les 200ms, on change l'opacité d'une lettre au hasard
+setInterval(randomBlink, 200);
+
+</script>
+</body>
+</html>
