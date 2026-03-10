@@ -2,127 +2,115 @@
    0. Variables  
 ----------------------------- */
 :root {
-  --marge_gauche:115px;
-  --pourcent_ecran:80%;
+  --marge_gauche: 115px;
+  --pourcent_ecran: 80%;
 }
 
 /* -----------------------------
    1. Style global du corps
 --------------------------------*/
 body {
-    margin: 0; /* Supprime les marges par défaut du navigateur pour que tout prenne toute la largeur */
-    font-family: Arial, sans-serif; /* Définit la police principale du site */
-	background-color: hsl(142 24% 25%);
-	
+    margin: 0; 
+    font-family: Arial, sans-serif; 
+    background-color: hsl(142 24% 25%);
+    color: white; /* Ajout d'une couleur de texte claire par défaut sur fond sombre */
 }
 
 /* -----------------------------
    2. Bandeau rectangle en haut (header)
 --------------------------------*/
 .hero {
-	
-    position: relative; /* Permet aux enfants (images et titre) de se positionner absolument par rapport à ce container */
-    height: 350px;      /* Hauteur du rectangle en pixels. Ajustable selon ton besoin */
-    width: 100%;        /* Largeur pleine de l’écran */
-    overflow: hidden;   /* Cache tout débordement (utile pour les images coupées en biais) */
+    position: relative; 
+    height: 350px;      
+    width: 100%;        
+    overflow: hidden;   
 }
 
 /* -----------------------------
    3. Images en arrière-plan
 --------------------------------*/
 .img {
-    position: absolute;   /* Permet de placer exactement où on veut sur le container */
-    top: 0;               /* Commence en haut du container */
-    width: 60%;           /* Chaque image prend 60% de la largeur du container */
-    height: 100%;         /* Chaque image prend 100% de la hauteur du container */
-    background-size: cover;       /* L'image couvre tout l’espace disponible sans déformer le ratio */
-    background-position: center;  /* Centre l'image dans son conteneur */
+    position: absolute;   
+    top: 0;               
+    width: 60%;           
+    height: 100%;         
+    background-size: cover;       
+    background-position: center;  
 }
 
-/* Image de gauche */
 .img-left {
-    left: 0;  /* Collée à gauche */
-    background-image: url("image_code.jfif"); /* Image à afficher à gauche */
+    left: 0;  
+    background-image: url("image_code.jfif"); 
     clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
-    /* clip-path définit une forme qui "découpe" l'image :
-       - (0 0) coin haut-gauche
-       - (100% 0) coin haut-droit
-       - (80% 100%) un point à 80% de la largeur en bas
-       - (0 100%) coin bas-gauche
-       => résultat : image coupée en biais vers la droite en bas */
 }
 
-/* Image de droite */
 .img-right {
-    right: 0; /* Collée à droite */
-    background-image: url("image_pcb.jpeg"); /* Image à afficher à droite */
+    right: 0; 
+    background-image: url("image_pcb.jpeg"); 
     clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
-    /* clip-path définit une forme qui "découpe" l'image :
-       - (20% 0) un point en haut à 20% de la largeur
-       - (100% 0) coin haut-droit
-       - (100% 100%) coin bas-droit
-       - (0 100%) coin bas-gauche
-       => résultat : image coupée en biais vers la gauche en haut */
 }
 
 /* -----------------------------
    4. Titre centré
 --------------------------------*/
 .title {
-    position: absolute;              /* Permet de positionner le titre par rapport au container .hero */
-    top: 50%;                        /* Place le point central du titre à 50% de la hauteur */
-    left: 50%;                       /* Place le point central du titre à 50% de la largeur */
-    transform: translate(-50%, -50%);/* Décale le titre de moitié de sa largeur et hauteur pour le centrer exactement */
-    color: black;                    /* Couleur du texte */
-    font-size: 5rem;                 /* Taille du texte en "rem" (relative à la taille de police du corps) */
-    z-index: 1;                      /* Met le titre devant les images (images ont z-index par défaut = auto) */
-    text-align: center;              /* Centre le texte si multi-ligne */
-	background-color: white;		 /* Couleur de fond */
-	padding: 5px;
-	
-	
+    position: absolute;              
+    top: 50%;                        
+    left: 50%;                       
+    transform: translate(-50%, -50%);
+    color: black;                    
+    font-size: 5rem;                 
+    z-index: 1;                      
+    text-align: center;              
+    background-color: white;		 
+    padding: 10px 20px; /* Un peu plus d'espace autour du texte */
+    margin: 0;
+    border-radius: 5px; /* Coins légèrement arrondis pour l'esthétique */
 }
-
-p {
-  /*text-indent: 50px;/**/
-  text-align: justify;/**/
-  letter-spacing: 3px;/**/
-}
-
 
 /* -----------------------------
-   5. Contenu sous le header
+   5. Contenu textuel et sections
 --------------------------------*/
-.presentation {
-    padding: var(--marge_gauche);     /* Ajoute un espace à l’intérieur de la section pour que le texte ne touche pas les bords */
-	position: relative; /* Permet aux enfants (images et titre) de se positionner absolument par rapport à ce container */
-    height: auto;       /* Hauteur du rectangle en pixels. Ajustable selon ton besoin */
-    width: var(--pourcent_ecran);         /* Largeur pleine de l’écran */
-	font-size: 17px;    /* Taille du texte */ 
-	
+p {
+  text-align: justify;
+  letter-spacing: 1px; /* 3px était un peu trop large pour la lisibilité */
+  line-height: 1.6; /* Améliore la lisibilité des paragraphes */
+}
+
+h2 {
+    border-bottom: 2px solid #00A97F; /* Souligne les titres de section */
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* J'ai regroupé ici les anciennes classes .presentation, .alternance, etc. */
+.content-section {
+    margin-left: var(--marge_gauche);
+    padding: 20px 0;
+    position: relative; 
+    width: var(--pourcent_ecran);         
+    font-size: 17px;    
 }
 
 .photo_perso {
   float: left;
-  margin-right: 15px;
+  margin-right: 20px;
   width: 150px;
+  border-radius: 8px; /* Adoucit les angles de la photo */
 }
 
-.projets_academique{
-	padding: 40px;	
+.text-content::after {
+    content: "";
+    display: table;
+    clear: both; /* Permet de contenir correctement l'image en float */
 }
 
-.alternance{  
-	margin-left: var(--marge_gauche);  
-	position: relative; /* Permet aux enfants (images et titre) de se positionner absolument par rapport à ce container */
-    height: auto;      /* Hauteur du rectangle en pixels. Ajustable selon ton besoin */
-     width: var(--pourcent_ecran);        /* Largeur pleine de l’écran */
-	font-size: 17px;   /* Taille du texte */
-}
-
-.vertical{
+/* -----------------------------
+   6. Disposition des boutons
+--------------------------------*/
+.vertical {
   display: flex;
-  justify-content: center; /* centre horizontalement */
-  gap: 40px; /* espace entre les boutons */
-
+  justify-content: center; 
+  flex-wrap: wrap; /* Permet aux boutons de passer à la ligne sur petit écran */
+  gap: 20px; /* Réduit un peu l'écart pour éviter les débordements */
 }

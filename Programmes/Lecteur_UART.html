@@ -4,154 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analyse Code : Filtre Trace</title>
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --success-color: #27ae60;
-            --warning-color: #e67e22;
-            --bg-color: #f8f9fa;
-            --text-color: #333;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 0 20px;
-        }
-
-        h2 {
-            color: var(--secondary-color);
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 0.5rem;
-            margin-top: 2rem;
-        }
-
-        .intro {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            font-size: 1.1rem;
-        }
-
-        /* Styles pour l'accordéon (JavaScript) */
-        .accordion {
-            background-color: white;
-            color: var(--primary-color);
-            cursor: pointer;
-            padding: 18px;
-            width: 100%;
-            border: none;
-            text-align: left;
-            outline: none;
-            font-size: 1.2rem;
-            font-weight: bold;
-            transition: 0.4s;
-            border-bottom: 1px solid #eee;
-            border-radius: 4px;
-            margin-top: 5px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .active, .accordion:hover {
-            background-color: #e9ecef;
-        }
-
-        .accordion::after {
-            content: '\002B'; /* Signe Plus */
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .active::after {
-            content: "\2212"; /* Signe Moins */
-        }
-
-        .panel {
-            padding: 0 18px;
-            background-color: white;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.2s ease-out;
-            border-radius: 0 0 4px 4px;
-        }
-
-        .panel p, .panel ul {
-            margin: 15px 0;
-        }
-
-        /* Grille pour les points forts et améliorations */
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 2rem;
-        }
-
-        .card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .card h3 {
-            margin-top: 0;
-        }
-
-        .card.success h3 {
-            color: var(--success-color);
-        }
-
-        .card.warning h3 {
-            color: var(--warning-color);
-        }
-
-        code {
-            background-color: #f1f2f6;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: monospace;
-            color: #e84118;
-        }
-		.bp_source {
-            background-color: white;	/**/
-            color: var(--primary-color);/**/
-            cursor: pointer;/**/
-            padding: 18px;/**/
-            width: 100%;/**/
-            border: none;/**/
-            /*text-align: center;/**/
-            /*outline: none;/**/
-            font-size: 1.2rem;/**/
-            font-weight: bold;/**/
-            border-bottom: 1px solid #eee;/**/
-            border-radius: 4px;/**/
-            margin-top: 15px;/**/
-            justify-content: space-between;/**/
-            align-items: center;/**/
-        }
-    </style>
+	<link rel="stylesheet" href="styles_programmes.css">
 </head>
 <body>
 
@@ -211,7 +64,7 @@
             <div class="card warning">
                 <h3>Lecture sans filtre</h3>
 				<p>Le filtre n'étant pas actif, toutes les informations lu sur le port 5 seront affichés.</p>
-				<video autoplay controls loop  width="380" height="270"">
+				<video autoplay controls loop muted  width="380" height="270"">
 				  <source src="Filtre Trace 2026-03-10 14-51-25.mp4" type="video/mp4" />
 			    </video>
             </div>
@@ -219,29 +72,12 @@
             <div class="card warning">
                 <h3>Lecture avec filtre </h3>
 				<p>Le mot rechercher est M5. Le filte me permet donc de ne voir que les trames radio des M5.</p>
-				<video autoplay controls loop width="380" height="270"">
+				<video autoplay controls muted loop width="380" height="270"">
 				  <source src="Filtre Trace 2026-03-10 14-50-39.mp4" type="video/mp4" />
 			    </video>
             </div>
         </div>
     </div>
-    <script>
-        // Script pour gérer l'accordéon
-        var acc = document.getElementsByClassName("accordion");
-        var i;
-
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var panel = this.nextElementSibling;
-                if (panel.style.maxHeight) {
-                    panel.style.maxHeight = null;
-                } else {
-                    panel.style.maxHeight = panel.scrollHeight + "px";
-                } 
-            });
-        }
-    </script>
-
+<script src="./java_programmes.js"></script>
 </body>
 </html>
