@@ -17,6 +17,22 @@ body {
 }
 
 /* -----------------------------
+   Logo GIT
+--------------------------------*/
+.logo-fixe {
+    position: fixed; 
+    top: 0px;      
+    right: 0px;    
+    width:140px;    
+    z-index: 1000;   
+}
+
+.logo-fixe:hover{
+	width:170px; 
+}
+
+
+/* -----------------------------
    2. Bandeau rectangle en haut (header)
 --------------------------------*/
 .hero {
@@ -113,4 +129,5 @@ h2 {
   justify-content: center; 
   flex-wrap: wrap; /* Permet aux boutons de passer à la ligne sur petit écran */
   gap: 80px; /* Réduit un peu l'écart pour éviter les débordements */
+
 }
