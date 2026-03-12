@@ -1,0 +1,14 @@
+/* -----------------------------
+   Logo GIT
+--------------------------------*/
+.logo-fixe {
+    position: fixed; 
+    top: 0px;      
+    right: 0px;    
+    width:140px;    
+    z-index: 1000;   
+}
+
+.logo-fixe:hover{
+	width:170px; 
+}
