@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyse Code : Filtre Trace</title>
+	<link rel="stylesheet" href="../styles/styles_programmes.css">
+	<link rel="stylesheet" href="../styles/styles_ATL.css">
+</head>
+<body>
+    <header>
+        <h1>Automatique Request Luna</h1>
+    </header>
+    <div class="container">
+        <div class="intro">
+            <strong>Objectif de l'application :</strong> Certains des appareils que j'ai pu tester sont supervisés par serveur web. Mon objectif a donc été d'automatiser les actions des appareils en passant par la plateforme et de traiter les résultats remontés.
+			<p align="center" style ="font-size:2rem;">⚠️</p>
+			<p align="center">Pour des raisons de secret professionnel, le code source et le fonctionnement exacte de ce programme ne seront pas partagé.<br> <strong>Merci de votre compréhention.</strong></p>
+		</div>
+		
+        <h2> 1. Fonctionnement Général</h2>
+        <div class="intro">
+            <p>Mon application (nommée <strong>ARL</strong>) va s'authentifier sur le serveur pour ensuite monitorer les appareils voulu. Une fois que les produits en tests ont fini d'exécuter les taches demandés, l'ARL se reconnecte à la plateforme pour récupérer les résultats. Les résultats sont ensuite <strong>triés</strong>, puis <strong>stocké de manère claire</strong> dans un fichier log pour que le testeur puisse facilement voir les informations importantes.</p>
+        </div>
+
+        <h2>2. Découpage et Analyse des Composants</h2>
+		
+		<button class="accordion">A. Paramètres</button>
+        <div class="panel">
+            <p>A l'aide de l'interface graphique, l'utilisateur peut en toute simplicité renseigner les identifiants des produits à tester. Ces identifiants sont stockés, et seront réutilisés dans les requêtes avec le serveur.</p> 
+		</div>
+        
+        <button class="accordion">B. Connexions server</button>
+        <div class="panel">
+            <p>Pour communiquer avec la plateforme web j'utilise les biliothèques <code>BeautifulSoup</code> pour analyser simplement les réponses web et <code>request</code> pour communiquer avec le serveur.</p>
+			<p>Pour chaque requête faite, l'ARL prend en compte les réponses http des requêtes, car le serveur n'est pas toujours joignable. Si une requête n'obtient pas un code 200 ou 201 alors l'ARL le renseigne dans les logs et attend avant de retenter sa requête.</p>
+		</div>
+
+        <button class="accordion">C. Analyse des réponses et stockage</button>
+        <div class="panel">
+			<p>Après avoir attendu un délai fixé par l'utilisateur pour laissé le temps au produit d'effectuer sa tache, l'ARL refait une connexion plateforme pour récupérer les résultats de la demande. Seul les informations en rapport avec le test sont récoltés.</p>
+			<p>Les informations les plus importantes comme le résultat de la requête sont directement communiqués avec l'interface graphique. Cela permet de voir rapidement l'état du test.<br>
+			Toutes les informations en rapport avec le test sont enregistrés dans un fichier <code>log.csv</code>. Si un doute est émit sur les résultats obtenu, il est toujours possible d'aller vérifier le résultat manuellement avec l'id de la requête stocké dans les logs(gestion d'erreur).</p>
+			<p> Pour garentir un fonctionnement continue du programme l'utilisation de la méthode <code>try{} exept{}</code> est très régulière. Elle permet de traiter les cas d'erreur et ne pas intérromptre le programme. Les cas erreur sont également inscrits dans l'interface graphique.</p>
+		</div>
+
+		<section class="anim">
+		<div class="container_anim">
+			<h2>Animation du fonctionnement</h2>
+			
+			<div class="animation-area">
+				<div class="node ATL">💻 ARL</div>
+				<div class="node PATV">🖥️ Plateforme</div>
+				<div class="node LDD" id = "animation_scan">🖥️ Produit</div>
+
+				<div class="arrow arrow_creation_scan" id="arrow_creation_scan">Requête de test➡️</div>
+				<div class="arrow arrow_reveil_LDD" id="arrow_reveil_LDD">Transmission de la commande➡️</div>
+				<div class="arrow arrow_remonte_scan" id="arrow_remonte_scan">⬅️Résultats </div>
+				<div class="arrow arrow_analyse_scan" id="arrow_analyse_scan">Récupération du résultat➡️</div>
+				<img class = "image_parametre" src="../images/logo paramètre.png" id = "image_parametre"/>
+			</div>
+
+			<p class="description" id="stepDesc">Étape 0 : Prêt. Cliquez sur la flèche de droite pour commencer.</p>
+
+			<div class="controls">
+				<button id="prevBtn" disabled>⬅️ Reculer</button>
+				<button id="nextBtn">Avancer ➡️</button>
+			</div>
+		</div>
+	</section>
+
+
+        <h2>3. Appercue en fonctionnement</h2>
+            <div class="card warning">
+                <h3>Illustration sur un détecteur de présence</h3>
+				<p>L'interface graphique permet de donner les paramètres répidement, et la fenêtre de texte permet de rapidement voir les résultats des demandes.</p>
+				<img src="../images/Illustration ARL.png"  style="width: 400px;border-radius: 8px;margin-left: 230px;">
+			    </video>
+            </div>	   
+<script src="../js/java_programmes.js"></script>
+<script src="../js/java_ATL.js"></script>
+</body>
+
+</html>

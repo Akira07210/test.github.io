@@ -20,13 +20,13 @@ const maxSteps = 6;
 
 // Textes explicatifs pour chaque étape
 const descriptions = [
-    "Étape 0 : L'ATL attend le delay fixé pour déclencher demander un scan.",
-    "Étape 1 : L'ATL fait un enchainement de requête pour créer la demande de scan sur la plateforme.",
-    "Étape 2 : Le serveur réveil le radar pour faire un scan.",
-    "Étape 3 : Le radar scan son environnement.",
+    "Étape 0 : L'ATL attend le delay fixé pour déclencher sa requête.",
+    "Étape 1 : L'ATL fait un enchainement de requête pour créer la demande d'activation du produit sur la plateforme.",
+    "Étape 2 : Le serveur réveil le produit avec sa commande à éxécuter.",
+    "Étape 3 : Le produit traite la demande.",
     "Étape 4 : Les résultats sont remontés au serveur.",
-    "Étape 5 : L'ATL vient après un délai d'attente, récupérer les résultats de scan.",
-    "Étape 6 : L'ATL peut ensuite traiter les données récoltés."
+    "Étape 5 : L'ARL vient après un délai d'attente, récupérer les résultats de la commande.",
+    "Étape 6 : L'ARL peut ensuite traiter les données récoltés et les stocker."
 ];
 
 function updateAnimation() {

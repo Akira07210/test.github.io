@@ -66,7 +66,7 @@ h2 {
 	align-items: center;
 }
 
-.active, .accordion:hover {
+.active_branche, .accordion:hover {
 	background-color: #e9ecef;
 }
 
@@ -76,7 +76,7 @@ h2 {
 	font-weight: bold;
 }
 
-.active::after {
+.active_branche::after {
 	content: "\2212"; /* Signe Moins */
 }
 
@@ -112,14 +112,9 @@ h2 {
 	margin-top: 0;
 }
 
-.card.success h3 {
-	color: var(--success-color);
-}
-
 .card.warning h3 {
 	color: var(--warning-color);
 }
-
 code {
 	background-color: #f1f2f6;
 	padding: 2px 6px;
@@ -141,6 +136,7 @@ code {
 	border-bottom: 1px solid #eee;/**/
 	border-radius: 4px;/**/
 	margin-top: 15px;/**/
+
 	justify-content: space-between;/**/
 	align-items: center;/**/
 }

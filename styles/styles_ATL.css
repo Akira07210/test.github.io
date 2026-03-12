@@ -1,12 +1,13 @@
-body {
+.anim {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    background-color: #f8f9fa;
     display: flex;
     justify-content: center;
     padding-top: 50px;
+	padding-bottom: 30px;
 }
 
-.container {
+.anim .container_anim {
     background: white;
     padding: 20px 40px;
     border-radius: 10px;
@@ -14,7 +15,7 @@ body {
     text-align: center;
 }
 
-.animation-area {
+.anim .animation-area {
     position: relative;
     width:1300px;
     height: 200px;
@@ -30,8 +31,7 @@ body {
 
 
 
-.image_parametre
-{
+.anim .image_parametre{
 	visibility: hidden;
 	position: absolute;
 	width:100px;
@@ -41,7 +41,7 @@ body {
 	
 }
 
-.image_parametre.active
+.anim .image_parametre.active
 {
 	visibility: visible;
 	animation: image_parametre 2s linear infinite;
@@ -58,7 +58,7 @@ body {
 
 
 /* Style des machines */
-.node {
+.anim .node {
     width: 150px;
     height: 120px;
     color: white;
@@ -70,11 +70,11 @@ body {
     font-size: 1.2rem;
     z-index: 2; /* Reste au-dessus des flèches */
 }
-.ATL { background: #3498db; }
-.PATV { background: #3498db; }
-.LDD { background: #3498db; }
+.anim .ATL { background: #3498db; }
+.anim .PATV { background: #3498db; }
+.anim .LDD { background: #3498db; }
 
-.LDD.active:after{
+.anim .LDD.active:after{
   content:'';
   background:#ff3600;
   width:7px;
@@ -94,7 +94,7 @@ body {
 }
 
 /* Style de base des éléments animés */
-.arrow {
+.anim .arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -111,42 +111,42 @@ body {
 /* --- ÉTATS DE L'ANIMATION --- */
 
 /* Requete création de scan  */
-.arrow_creation_scan {
+.anim .arrow_creation_scan {
     background: #ff9800;
     left: 50px ; /* Position de départ, près du client */
 }
-.arrow_creation_scan.active {
+.anim .arrow_creation_scan.active {
     opacity: 1;
     left: 380px; /* Position d'arrivée, près du serveur */
 }
-.arrow_reveil_LDD {
+.anim .arrow_reveil_LDD {
     background: #ff9800;
     left: 700px ; /* Position de départ, près du client */
 }
-.arrow_reveil_LDD.active {
+.anim .arrow_reveil_LDD.active {
     opacity: 1;
-    left: 910px; /* Position d'arrivée, près du serveur */
+    left: 805px; /* Position d'arrivée, près du serveur */
 }
-.arrow_remonte_scan {
+.anim .arrow_remonte_scan {
     background: #ff9800;
     left: 1100px ; /* Position de départ, près du client */
 }
-.arrow_remonte_scan.active {
+.anim .arrow_remonte_scan.active {
     opacity: 1;
     left: 740px; /* Position d'arrivée, près du serveur */
 }
-.arrow_analyse_scan {
+.anim .arrow_analyse_scan {
     background: #ff9800;
     left: 50px ; /* Position de départ, près du client */
 }
-.arrow_analyse_scan.active {
+.anim .arrow_analyse_scan.active {
     opacity: 1;
-    left: 340px; /* Position d'arrivée, près du serveur */
+    left: 300px; /* Position d'arrivée, près du serveur */
 }
 
 
 /* Style des contrôles */
-.controls button {
+.anim .controls button {
     padding: 10px 20px;
     font-size: 1rem;
     cursor: pointer;
@@ -156,11 +156,11 @@ body {
     background-color: #333;
     color: white;
 }
-.controls button:disabled {
+.anim .controls button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
 }
-.description {
+.anim .description {
     font-size: 1.1rem;
     color: #555;
     margin-bottom: 20px;

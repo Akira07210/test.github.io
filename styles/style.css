@@ -17,6 +17,22 @@ body {
 }
 
 /* -----------------------------
+   Logo GIT
+--------------------------------*/
+.logo-fixe {
+    position: fixed; 
+    top: 0px;      
+    right: 0px;    
+    width:140px;    
+    z-index: 1000;   
+}
+
+.logo-fixe:hover{
+	width:170px; 
+}
+
+
+/* -----------------------------
    2. Bandeau rectangle en haut (header)
 --------------------------------*/
 .hero {
@@ -40,13 +56,13 @@ body {
 
 .img-left {
     left: 0;  
-    background-image: url("image_code.jfif"); 
+    background-image: url("../images/image_code.jfif"); 
     clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
 }
 
 .img-right {
     right: 0; 
-    background-image: url("image_pcb.jpeg"); 
+    background-image: url("../images/image_pcb.jpeg"); 
     clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
 }
 
@@ -112,5 +128,6 @@ h2 {
   display: flex;
   justify-content: center; 
   flex-wrap: wrap; /* Permet aux boutons de passer à la ligne sur petit écran */
-  gap: 20px; /* Réduit un peu l'écart pour éviter les débordements */
+  gap: 80px; /* Réduit un peu l'écart pour éviter les débordements */
+
 }
