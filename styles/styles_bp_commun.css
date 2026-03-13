@@ -6,9 +6,48 @@
     top: 0px;      
     right: 0px;    
     width:140px;    
-    z-index: 1000;   
+    z-index: 1000;  
+	transition: .5s ;
 }
 
 .logo-fixe:hover{
 	width:170px; 
 }
+
+/* -----------------------------
+   Bouton retour
+--------------------------------*/
+
+.button_back_bottom{
+	position: fixed; 
+	z-index: 1000;   
+	top : 10px ;
+	left : 5px;
+	width: 300px;
+	height: 44px;
+	background: white ;
+	border-radius: 900px;
+	transition: .5s ;
+	font-size: 25px;
+	font-family: 'Roboto', 'Segoe UI', sans-serif;
+	text-align: center;
+	font-weight: 800;
+	border: solid 2px black;
+}
+
+.button_front_bottom{
+	background: #31628a ;
+	border-radius: 9000px;
+	position: fixed; 
+	z-index: 1000;   
+	top : 15px ;
+	left : 8px;
+	width: 35px;
+	height: 37px;
+	transition: .5s ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button_front_bottom.extantion_du_territoire{width: 292px;height: 40px;top : 14px ;left : 10px;}

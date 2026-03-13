@@ -4,7 +4,7 @@
 .btn {
 
   /* Variable CSS : couleur principale du bouton (vert) */
-  --color: #00A97F;
+  --color: white;/*#00A97F;
 
   /* Variable CSS : couleur du texte quand on survole le bouton */
   --color2: rgb(10, 25, 30);
